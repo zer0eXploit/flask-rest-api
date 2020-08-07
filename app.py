@@ -1,3 +1,4 @@
+import os
 from flask_jwt import JWT
 from flask_restful import Resource, Api
 from flask import Flask
@@ -13,7 +14,9 @@ app = Flask(__name__)
 app.secret_key = "this_is_something_secret_that_you_should_nt_share"
 
 app.config['DEBUG'] = True
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get(
+    'DATABASE_URL', 'sqlite:///data.db'
+)
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=3600)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # app.config['JWT_NOT_BEFORE_DELTA'] = timedelta(seconds=120)
