@@ -8,6 +8,7 @@ from resources.user import User_Register
 from resources.item import Item, Items_List
 from resources.store import Store, Stores_List
 from resources.home import Home
+from resources.loader_io import Loader
 
 
 app = Flask(__name__)
@@ -26,6 +27,7 @@ api = Api(app)
 jwt = JWT(app, authenticate, identity)  # creates /auth
 
 api.add_resource(Home, "/")
+api.add_resource(Loader, "/loaderio-a3d59da2c9ad87df554a0d56197a20e5")
 api.add_resource(Store, "/store/<string:name>")
 api.add_resource(Stores_List, "/stores")
 api.add_resource(Item, "/item/<string:name>")
