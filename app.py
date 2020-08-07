@@ -27,7 +27,7 @@ api = Api(app)
 jwt = JWT(app, authenticate, identity)  # creates /auth
 
 api.add_resource(Home, "/")
-api.add_resource(Loader, "/loaderio-a3d59da2c9ad87df554a0d56197a20e5")
+api.add_resource(Loader, "/loaderio-a3d59da2c9ad87df554a0d56197a20e5/")
 api.add_resource(Store, "/store/<string:name>")
 api.add_resource(Stores_List, "/stores")
 api.add_resource(Item, "/item/<string:name>")
